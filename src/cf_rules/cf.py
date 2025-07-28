@@ -529,7 +529,7 @@ class Cloudflare:
 
         updated_rule["expression"] = expression
 
-        r = requests.patch(f"https://api.cloudflare.com/client/v4/zones/{zone_id}/rulesets/{custom_ruleset_id}/rules/{rule_id}", headers=self._headers, json=updated_rule, timeout=5)
+        r = requests.patch(f"https://api.cloudflare.com/client/v4/zones/{zone_id}/rulesets/{custom_ruleset_id}/rules/{rule_id}", headers=self._headers, json=updated_rule, timeout=15)
 
         return self.error.handle(r.json(), ["success"])
 
